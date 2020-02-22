@@ -6,6 +6,9 @@ import router from './router/index'
 import VueRouter from 'vue-router'
 // 引入iview
 import 'view-design/dist/styles/iview.css'
+// 引入字体图标文件
+import './common/css/style.css'
+
 Vue.use(VueRouter)
 let vm = new Vue({
   el: '#app',

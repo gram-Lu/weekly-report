@@ -2,7 +2,7 @@
   <!--<Home/>-->
   <div>
     <tab/>
-    <router-view></router-view>
+    <!--<router-view></router-view>-->
   </div>
 </template>
 <script>

@@ -4,17 +4,16 @@
 <template>
   <div class="layout">
     <Layout>
-      <Header theme="primary">
         <div class='hearder-all'>
-        <div class="layout-logo">
-          <Icon type="md-albums" />
-          <span >周报系统</span>
+        <div class='hearder-1'>
+          <i class="report-user-check"></i>
+          <span>周报系统</span>
         </div>
-          <div class="header-2">
+          <div class='hearder-2'>
             <span>Admin</span>
+            <i class="report-user-check"></i>
           </div>
         </div>
-      </Header>
       <Layout :style="{padding: '0 50px'}">
         <Breadcrumb :style="{margin: '16px 0'}">
           <BreadcrumbItem>Home</BreadcrumbItem>
@@ -137,10 +136,22 @@ export default {
     background: #2db7f5;
     display: flex;
     flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    height: 50px;
+    position: relative;
+  }
+  .header-1{
+    height: 30px;
+    position: relative;
+    display: flex;
+    align-content: space-around;
+    justify-content: left;
   }
   .header-2{
-    background: #2db7f5;
-    width: 40px;
-    margin-left: 1000px;
+    position: relative;
+    display: flex;
+    align-content: space-around;
+    justify-content: right;
   }
 </style>
