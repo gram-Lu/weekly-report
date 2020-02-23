@@ -8,8 +8,9 @@ import VueRouter from 'vue-router'
 import 'view-design/dist/styles/iview.css'
 // 引入字体图标文件
 import './common/css/style.css'
-
+import {Modal} from 'iview'
 Vue.use(VueRouter)
+Vue.prototype.$Modal = Modal
 let vm = new Vue({
   el: '#app',
   router,
