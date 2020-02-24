@@ -52,12 +52,12 @@
                     部门管理
                   </template>
                   <MenuItem name="5-1">周报管理</MenuItem>
-                  <MenuItem name="5-2">成员管理</MenuItem>
+                  <MenuItem name="5-2"><div v-on:click="home('/manageStaff')">成员管理</div></MenuItem>
                 </Submenu>
                 <MenuItem name="2">
                   <div v-on:click="home('/writeReport')">
                   <Icon type="ios-navigate"></Icon>
-                  <span >写周报</span>
+                  <span>写周报</span>
                   </div>
                 </MenuItem>
                 <MenuItem name="3">
@@ -97,7 +97,6 @@
   </div>
 </template>
 <script>
-// eslint-disable-next-line standard/object-curly-even-spacing
 import {Layout, Sider, Menu, MenuItem, Icon, Header, Submenu, Breadcrumb, BreadcrumbItem, Dropdown, DropdownItem, DropdownMenu, Modal} from 'view-design'
 import Home from './../page/Home'
 import Me from './../page/Me'
@@ -111,6 +110,9 @@ export default {
     }
   },
   computed: {
+  },
+  mounted() {
+    this.$store.dispatch()
   },
   methods: {
     home (path) {

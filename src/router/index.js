@@ -5,6 +5,7 @@ import Home from './../page/Home'
 import Search from './../page/Search'
 import Me from './../page/Me'
 import Survey from './../page/Survey'
+import ManageStaff from '../page/ManageStaff'
 import WriteReport from './../page/WriteReport'
 // 声明使用
 Vue.use(VueRouter)
@@ -13,9 +14,14 @@ export default new VueRouter({
   // 配置一级路由
   routes: [
     {
-      name: 'writeReport',
+      name: 'WriteReport',
       path: '/writeReport',
       component: WriteReport
+    },
+    {
+      name: 'ManageStaff',
+      path: '/manageStaff',
+      component: ManageStaff
     },
     {
       name: 'survey',
