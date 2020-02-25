@@ -1,3 +1,3 @@
 export default {
-  test: []
+  test: [{me:1234566}]
 }

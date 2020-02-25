@@ -21,44 +21,42 @@ router.get('/captcha', function (req, res) {
 
 router.get('/mysql', function(req, res, next) {
   console.log('进入到mysql中')
-  console.log(conn)
-  console.log(require('./../data/conn'))
   conn.query('select * from manage_user', function (error, results, fields) {
     if (error) throw error;
     res.send(results)
   });
 });
 
-router.get('/test',()=>{
-  let type = 'GET';
-  let promise;
-  let url = 'http://localhost:3000/test';
-  let paramStr = '';
-  let anObj = { 100: 'a', 2: 'b', 7: 'c' };
-  console.log(Object.keys(anObj));
-  if(type === 'GET') {
-    Object.keys(anObj).forEach(key => {
-      paramStr = paramStr + key + '=' + anObj[key] + '&'
-    });
-    console.log(paramStr)
-    console.log(paramStr.lastIndexOf('&'))
-    // 过滤最后的&
-    if (paramStr !== '') {
-      paramStr = paramStr.substr(0, paramStr.lastIndexOf('&'))
-    }
-    //完整路径
-    url += '?' + paramStr;
-    console.log(url);
-    console.log(axios)
-    promise = axios.get(url);
-  }else if(type ==='POST'){
-    promise = axios.post(url,anObj)
-  }
-  console.log(promise)
-  promise.then((response)=>{
-    resolve(response.data)
-  }).catch(error=>{
-    reject(error)
-  })
-})
+// router.get('/test',()=>{
+//   let type = 'GET';
+//   let promise;
+//   let url = 'http://localhost:3000/test';
+//   let paramStr = '';
+//   let anObj = { 100: 'a', 2: 'b', 7: 'c' };
+//   console.log(Object.keys(anObj));
+//   if(type === 'GET') {
+//     Object.keys(anObj).forEach(key => {
+//       paramStr = paramStr + key + '=' + anObj[key] + '&'
+//     });
+//     console.log(paramStr)
+//     console.log(paramStr.lastIndexOf('&'))
+//     // 过滤最后的&
+//     if (paramStr !== '') {
+//       paramStr = paramStr.substr(0, paramStr.lastIndexOf('&'))
+//     }
+//     //完整路径
+//     url += '?' + paramStr;
+//     console.log(url);
+//     console.log(axios)
+//     promise = axios.get(url);
+//   }else if(type ==='POST'){
+//     promise = axios.post(url,anObj)
+//   }
+//   console.log(promise)
+//   promise.then((response)=>{
+//     resolve(response.data)
+//   }).catch(error=>{
+//     reject(error)
+//   })
+// })
 module.exports = router;

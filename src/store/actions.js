@@ -4,7 +4,7 @@ export default {
   async reaGetTest ({commit}) {
     console.log('来到Action')
     const result = await getTest()
+    console.log(result)
     commit(Test_1, {Test: result, message: 200})
-  },
-  getnm(){console.log('123')}
+  }
 }

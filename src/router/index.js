@@ -7,6 +7,9 @@ import Me from './../page/Me'
 import Survey from './../page/Survey'
 import ManageStaff from '../page/ManageStaff'
 import WriteReport from './../page/WriteReport'
+import HistoryReport from './../page/HistoryReport'
+import WriteWeekReport from "../page/WriteReportChild/WriteWeekReport";
+console.log(WriteWeekReport)
 // 声明使用
 Vue.use(VueRouter)
 // 输出路由对象
@@ -16,7 +19,20 @@ export default new VueRouter({
     {
       name: 'WriteReport',
       path: '/writeReport',
-      component: WriteReport
+      component: WriteReport,
+      children:[
+        {
+          name: 'WriteWeekReport',
+          //注意二级路由path没有/
+          path: 'writeWeekReport',
+          component: WriteWeekReport
+        }
+      ]
+    },
+    {
+      name: 'HistoryReport',
+      path: '/historyReport',
+      component: HistoryReport
     },
     {
       name: 'ManageStaff',
