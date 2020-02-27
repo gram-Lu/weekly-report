@@ -11,9 +11,12 @@ import ViewUI from 'view-design'
 // 引入字体图标文件
 import './common/css/style.css'
 import {Modal} from 'iview'
-// import action from './store/actions'
-// console.log("main"+store);
-// console.log("main"+store.dispatch('reaGetTest'));
+
+import 'xe-utils'
+import VXETable from 'vxe-table'
+import 'vxe-table/lib/index.css'
+
+Vue.use(VXETable)
 Vue.use(VueRouter)
 Vue.prototype.$Modal = Modal
 Vue.use(Vuex)

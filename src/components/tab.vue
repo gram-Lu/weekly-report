@@ -6,7 +6,7 @@
     <Layout height="100%">
       <Sider hide-trigger :style="{background:'#001529'}">
         <div style="background:dodgerblue;width: 160px;height:40px;padding: 3% 7%;margin:12% 15px;font-size: 18px;border-radius: 10px;color:#FFFFFF;font-family: Bahnschrift">企业周报系统</div>
-        <Menu active-name="1-2" theme="light" width="auto" :open-names="['1']">
+        <Menu active-name="1-2" theme="light" width="auto" :open-names="['1']" style="z-index: 20">
           <MenuItem name="1">
             <div v-on:click="home('/survey')">
               <Icon type="ios-navigate"></Icon>
@@ -40,12 +40,6 @@
             <span>历史周报</span>
             </div>
           </MenuItem>
-          <!--                <button type="primary" @click="modal1 = true">显示对话框</button>-->
-          <!--                <Modal-->
-          <!--                  v-model="modal1"-->
-          <!--                  title="普通的Modal对话框标题">-->
-          <!--                  <p>重复点击</p>-->
-          <!--                </Modal>-->
         </Menu>
       </Sider>
       <Layout :style="{padding: '0'}">
@@ -102,14 +96,12 @@ export default {
   computed: {
   },
   mounted() {
-    // console.log(this.$store.action);
   },
   methods: {
     home (path) {
       console.log(path)
       console.log(this.$route.path === path)
       this.$router.replace(path).catch(() => {
-        // this.modal = true
       })
     }
   }

@@ -3,7 +3,7 @@ let conn = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
     password : '123456',
-    database : 'test'
+    database : 'weekly-report'
 });
 console.log(mysql)
 // console.log(conn)

@@ -19,13 +19,13 @@ router.get('/captcha', function (req, res) {
   req.session.captcha = captcha.text;
 });
 
-router.get('/mysql', function(req, res, next) {
-  console.log('进入到mysql中')
-  conn.query('select * from manage_user', function (error, results, fields) {
-    if (error) throw error;
-    res.send(results)
-  });
-});
+// router.get('/mysql', function(req, res, next) {
+//   console.log('进入到mysql中')
+//   conn.query('select * from manage_user', function (error, results, fields) {
+//     if (error) throw error;
+//     res.send(results)
+//   });
+// });
 
 // router.get('/test',()=>{
 //   let type = 'GET';
@@ -59,4 +59,11 @@ router.get('/mysql', function(req, res, next) {
 //     reject(error)
 //   })
 // })
+
+router.get('/writeReport', function(req, res, next) {
+  conn.query('select * from writereport', function (error, results, fields) {
+    if (error) throw error;
+    res.send(results)
+  });
+});
 module.exports = router;

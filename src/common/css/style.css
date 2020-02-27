@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'report';
-  src:  url('fonts/report.eot?13503k');
-  src:  url('fonts/report.eot?13503k#iefix') format('embedded-opentype'),
-    url('fonts/report.ttf?13503k') format('truetype'),
-    url('fonts/report.woff?13503k') format('woff'),
-    url('fonts/report.svg?13503k#report') format('svg');
+  src:  url('fonts/report.eot?kslkxf');
+  src:  url('fonts/report.eot?kslkxf#iefix') format('embedded-opentype'),
+    url('fonts/report.ttf?kslkxf') format('truetype'),
+    url('fonts/report.woff?kslkxf') format('woff'),
+    url('fonts/report.svg?kslkxf#report') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,22 +25,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.report-document-edit:before {
+  content: "\e902";
+  font-size: 20px;
+}
+.report-edit-pencil:before {
+  content: "\e901";
+}
+.report-trash:before {
+  content: "\e900";
+  font-size: 20px;
+}
 .report-user-check:before {
   content: "\e975";
-  font-size: 25px;
-  padding-left: 10px;
 }
 .report-accessibility:before {
   content: "\e9b2";
-  font-size: 20px;
-  background: #2db7f5;
-  border-radius: 50%;
 }
 .report-list2:before {
   content: "\e9bb";
-  font-size: 50px;
 }
 .report-circle-down:before {
   content: "\ea43";
-  color:white;
 }
