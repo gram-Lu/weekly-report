@@ -16,7 +16,7 @@ export default {
     home1(path){
       // console.log(path)
       this.$router.push(path).catch(()=>{})
-    }
+    },
   }
 }
 </script>

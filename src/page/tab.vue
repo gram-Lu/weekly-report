@@ -40,6 +40,18 @@
             <span>历史周报</span>
             </div>
           </MenuItem>
+          <MenuItem name="4">
+            <div v-on:click="home('/BlogIndex')">
+              <Icon type="ios-navigate"></Icon>
+              <span>写博客</span>
+            </div>
+          </MenuItem>
+          <MenuItem name="5">
+            <div v-on:click="home('/historybook')">
+              <Icon type="ios-navigate"></Icon>
+              <span>历史博客</span>
+            </div>
+          </MenuItem>
         </Menu>
       </Sider>
       <Layout :style="{padding: '0'}">
@@ -53,7 +65,7 @@
           <div class='hearder-2'>
             <Dropdown style="margin-left: 20px">
               <Button type="text">
-                Admin
+                {{username}}
                 <Icon type="md-arrow-dropdown" style="color: black" />
             </Button>
               <DropdownMenu slot="list">
@@ -66,10 +78,6 @@
         <Content :style="{padding: '24px 0', background: '#fff'}">
           <Layout>
             <div class="content">
-              <div>
-                <i class="report-accessibility"></i>
-                <span>首页</span>
-              </div>
               <router-view></router-view>
             </div>
           </Layout>
@@ -81,16 +89,25 @@
 </template>
 <script>
 import {Layout, Sider, Menu, MenuItem, Icon, Header, Submenu, Breadcrumb, BreadcrumbItem, Dropdown, DropdownItem, DropdownMenu, Modal, Button} from 'view-design'
-import Home from './../page/Home'
-import Me from './../page/Me'
-import Search from './../page/Search'
-import HistoryReport from './../page/HistoryReport'
+import Home from './Home'
+import Me from './Me'
+import Search from './Search'
+import HistoryReport from './HistoryReport'
 export default {
   components: {Layout, Menu, MenuItem, Icon, Header, Submenu, Breadcrumb, BreadcrumbItem, Home, HistoryReport, Search, Me, Dropdown, DropdownItem, DropdownMenu, Modal, Button},
   data () {
     return {
       isCollapsed: false,
-      modal1: false
+      modal1: false,
+      username:''
+    }
+  },
+  created() {
+    // console.log(this.$local.get('user'))
+    let userInfo = localStorage.getItem('user')
+    console.log(userInfo)
+    if (userInfo) {
+      this.username = userInfo
     }
   },
   computed: {
@@ -101,8 +118,7 @@ export default {
     home (path) {
       console.log(path)
       console.log(this.$route.path === path)
-      this.$router.replace(path).catch(() => {
-      })
+      this.$router.push(path)
     }
   }
 }

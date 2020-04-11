@@ -9,24 +9,79 @@ import ManageStaff from '../page/ManageStaff'
 import WriteReport from './../page/WriteReport'
 import HistoryReport from './../page/HistoryReport'
 import WriteWeekReport from "../page/WriteReportChild/WriteWeekReport";
-console.log(WriteWeekReport)
+// import login from "../page/NoUse/login"
+import BlogIndex from "../page/blog/BlogIndex";
+import CasualNote from '../page/blog/CasualNote'
+import DraftBox from '../page/blog/DraftBox'
+import Tab from './../page/tab'
+import login from './../page/login'
 // 声明使用
 Vue.use(VueRouter)
 // 输出路由对象
 export default new VueRouter({
   // 配置一级路由
+  mode:'history',
   routes: [
     {
-      name: 'WriteReport',
-      path: '/writeReport',
-      component: WriteReport,
+      name: 'login',
+      path: '/login',
+      component: login,
+    },
+    {
+      name: 'Tab',
+      path: '/Tab',
+      component: Tab,
+      meta:{
+        requireAuth: true,
+      },
       children:[
         {
-          name: 'WriteWeekReport',
-          //注意二级路由path没有/
-          path: 'writeWeekReport',
-          component: WriteWeekReport
-        }
+          path: '/BlogIndex',
+          name: 'BlogIndex',
+          component: BlogIndex,
+          children:[
+            {
+              name: 'CasualNote',
+              path: 'CasualNote',
+              component: CasualNote
+            },
+            {
+              name: 'DraftBox',
+              path: 'DraftBox',
+              component: DraftBox
+            },
+          ]
+        },
+        {
+          name: 'WriteReport',
+          path: '/writeReport',
+          component: WriteReport,
+          children:[
+            {
+              name: 'WriteWeekReport',
+              //注意二级路由path没有/
+              path: 'writeWeekReport',
+              component: WriteWeekReport
+            }
+          ]
+        },
+      ]
+    },
+    {
+      path: '/BlogIndex',
+      name: 'BlogIndex',
+      component: BlogIndex,
+      children:[
+        {
+          name: 'CasualNote',
+          path: 'CasualNote',
+          component: CasualNote
+        },
+        {
+          name: 'DraftBox',
+          path: 'DraftBox',
+          component: DraftBox
+        },
       ]
     },
     {
@@ -60,9 +115,8 @@ export default new VueRouter({
       component: Home
     },
     {
-      path: '/',
-      redirect: '/survey'
+      path:'',
+      redirect:'/login'
     }
-
   ]
 })

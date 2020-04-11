@@ -6,24 +6,14 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {
-      // '/api':{//替换代理名称
-      //   target:'http://127.0.0.1:8000', //代理地址
-      //   changeOrigin:true,//是否可以跨域
-      //   pathRewrite:{
-      //     '/api':''//重写api，把‘/api’去掉
-      //   }
-      // }
-    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: false,
+    autoOpenBrowser: true,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
@@ -31,6 +21,30 @@ module.exports = {
     // Use Eslint Loader?
     // If true, your code will be linted during bundling and
     // linting errors and warnings will be shown in the console.
+
+
+    proxyTable: {
+      '/api':{//替换代理名称
+        target:'http://127.0.0.1:3000/', //代理地址
+        changeOrigin:true,//是否可以跨域
+        pathRewrite:{
+          '/api':''//重写api，把‘/api’去掉
+        }
+      },
+      '/github': {
+        target: 'https://github.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '/github': ''
+        }
+      }
+    },
+
+
+
+    // devServer: {
+    //   proxy: 'http://localhost:5000'
+    // },
     useEslint: true,
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.

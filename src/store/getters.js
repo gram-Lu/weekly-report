@@ -1,1 +1,3 @@
-export default {}
+export default {
+  isLogin:state=>state.isLogin
+}
